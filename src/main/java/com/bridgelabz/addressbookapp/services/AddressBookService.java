@@ -10,43 +10,49 @@ import com.bridgelabz.addressbookapp.model.AddressBookData;
 
 @Service
 public class AddressBookService implements IAddressBookService{
+	
+	private List<AddressBookData> addressBookList = new ArrayList<>();
 
 	@Override
 	public List<AddressBookData> getAddressBookData() {
 		// TODO Auto-generated method stub
-		List<AddressBookData> addBookList = new ArrayList<>();
-		addBookList.add(new AddressBookData(1, new AddressBookDTO("Vijay", "Shankar", "1st-cross", "Mumbai", "Maharashtra", 400076, 9897346, "vijay@abc.com")));
-		return addBookList;
+		return addressBookList;
 	}
 
 	@Override
 	public AddressBookData getAddressBookDataById(int contactId) {
 		// TODO Auto-generated method stub
-		AddressBookData addBookData = null;
-		addBookData = new AddressBookData(1, new AddressBookDTO("Vijay", "Shankar", "1st-cross", "Mumbai", "Maharashtra", 400076, 9897346, "vijay@abc.com"));
-		return addBookData;
+		return addressBookList.get(contactId-1);
 	}
 
 	@Override
 	public AddressBookData createAddressBookData(AddressBookDTO addBookDTO) {
 		// TODO Auto-generated method stub
 		AddressBookData addBookData = null;
-		addBookData = new AddressBookData(1, addBookDTO);
+		addBookData = new AddressBookData(addressBookList.size()+1, addBookDTO);
 		return addBookData;
 	}
 
 	@Override
-	public AddressBookData updateAddressBookData(AddressBookDTO addBookDTO) {
+	public AddressBookData updateAddressBookData(int contactId, AddressBookDTO addBookDTO) {
 		// TODO Auto-generated method stub
-		AddressBookData addBookData = null;
-		addBookData = new AddressBookData(1, addBookDTO);
+		AddressBookData addBookData = this.getAddressBookDataById(contactId);
+		addBookData.setFirstName(addBookDTO.firstName);
+		addBookData.setLastName(addBookDTO.lastName);
+		addBookData.setAddress(addBookDTO.address);
+		addBookData.setCity(addBookDTO.city);
+		addBookData.setState(addBookDTO.state);
+		addBookData.setZip(addBookDTO.zip);
+		addBookData.setPhone(addBookDTO.phone);
+		addBookData.setEmail(addBookDTO.email);
+		addressBookList.set(contactId-1, addBookData);
 		return addBookData;
 	}
 
 	@Override
 	public void deleteAddressBookData(int contactId) {
 		// TODO Auto-generated method stub
-		
+		addressBookList.remove(contactId-1);
 	}
 	
 
