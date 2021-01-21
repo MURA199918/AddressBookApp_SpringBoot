@@ -4,7 +4,7 @@ import javax.validation.constraints.Pattern;
 
 public class AddressBookDTO {
 	
-	@Pattern(regexp = "^[A-Z]{1}{a-zA-Z\\s}{2,}$", message = "Contact name Invalid")
+	@Pattern(regexp = "^[A-Z]{1}[a-zA-Z\\s]{2,}$", message = "Contact name Invalid")
 	public String firstName;
 	public String lastName;
 	public String address;
