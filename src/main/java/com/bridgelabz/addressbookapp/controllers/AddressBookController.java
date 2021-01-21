@@ -44,6 +44,22 @@ public class AddressBookController {
 		return new ResponseEntity<ResponseDTO>(respDTO, HttpStatus.OK);
 	}
 	
+	@GetMapping("/city/{city}")
+	public ResponseEntity<ResponseDTO> getAddressBookDataByCity(@PathVariable("city") String city) {
+		List<AddressBookData> addBookList = null;
+		addBookList = addressBookService.getAddressBookDataByCity(city);
+		ResponseDTO respDTO = new ResponseDTO("Get call For ID Successful", addBookList);
+		return new ResponseEntity<ResponseDTO>(respDTO, HttpStatus.OK);
+	}
+	
+	@GetMapping("/state/{state}")
+	public ResponseEntity<ResponseDTO> getAddressBookDataByState(@PathVariable("state") String state) {
+		List<AddressBookData> addBookList = null;
+		addBookList = addressBookService.getAddressBookDataByState(state);
+		ResponseDTO respDTO = new ResponseDTO("Get call For ID Successful", addBookList);
+		return new ResponseEntity<ResponseDTO>(respDTO, HttpStatus.OK);
+	}
+	
 	@PostMapping("/create")
 	public ResponseEntity<ResponseDTO> addAddressBookData(@Valid @RequestBody AddressBookDTO addBookDTO) {	
 		AddressBookData addBookData = null;

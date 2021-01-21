@@ -33,6 +33,18 @@ public class AddressBookService implements IAddressBookService{
 				.orElseThrow( () -> new AddressBookException("Contact with contactId "+
 				                          contactId + " does not exists..!!"));
 	}
+	
+	@Override
+	public List<AddressBookData> getAddressBookDataByCity(String city) {
+		// TODO Auto-generated method stub
+		return addBookRepository.findContactByCity(city);
+	}
+
+	@Override
+	public List<AddressBookData> getAddressBookDataByState(String state) {
+		// TODO Auto-generated method stub
+		return addBookRepository.findContactByState(state);
+	}
 
 	@Override
 	public AddressBookData createAddressBookData(AddressBookDTO addBookDTO) {
