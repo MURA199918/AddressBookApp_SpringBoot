@@ -30,6 +30,10 @@ public @Data class AddressBookData {
 	private String phone;
 	private String email;
 	
+	public AddressBookData() {
+		
+	}
+	
 	public AddressBookData(AddressBookDTO addBookDTO) {
 	    this.updateAddressBookData(addBookDTO);
 	}

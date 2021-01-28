@@ -19,13 +19,11 @@ public class AddressBookService implements IAddressBookService{
 	@Autowired
 	private AddressBookRepository addBookRepository;
 
-	@Override
 	public List<AddressBookData> getAddressBookData() {
 		// TODO Auto-generated method stub
 		return addBookRepository.findAll();
 	}
 
-	@Override
 	public AddressBookData getAddressBookDataById(int contactId) {
 		// TODO Auto-generated method stub
 		return addBookRepository
@@ -34,19 +32,16 @@ public class AddressBookService implements IAddressBookService{
 				                          contactId + " does not exists..!!"));
 	}
 	
-	@Override
 	public List<AddressBookData> getAddressBookDataByCity(String city) {
 		// TODO Auto-generated method stub
 		return addBookRepository.findContactByCity(city);
 	}
 
-	@Override
 	public List<AddressBookData> getAddressBookDataByState(String state) {
 		// TODO Auto-generated method stub
 		return addBookRepository.findContactByState(state);
 	}
 
-	@Override
 	public AddressBookData createAddressBookData(AddressBookDTO addBookDTO) {
 		// TODO Auto-generated method stub
 		AddressBookData addBookData = null;
@@ -55,7 +50,6 @@ public class AddressBookService implements IAddressBookService{
 		return addBookRepository.save(addBookData);
 	}
 
-	@Override
 	public AddressBookData updateAddressBookData(int contactId, AddressBookDTO addBookDTO) {
 		// TODO Auto-generated method stub
 		AddressBookData addBookData = this.getAddressBookDataById(contactId);
@@ -63,7 +57,6 @@ public class AddressBookService implements IAddressBookService{
 		return addBookRepository.save(addBookData);
 	}
 
-	@Override
 	public void deleteAddressBookData(int contactId) {
 		// TODO Auto-generated method stub
 		AddressBookData addBookData = this.getAddressBookDataById(contactId);
