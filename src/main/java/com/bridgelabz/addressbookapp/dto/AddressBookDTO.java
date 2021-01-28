@@ -10,7 +10,7 @@ public @ToString class AddressBookDTO {
 	@Pattern(regexp = "^[A-Z]{1}[a-zA-Z\\s]{2,}$", message = "Contact name Invalid")
 	public String firstName;
 	
-	@NotBlank(message = "LastName cannot be Empty")
+	//@NotBlank(message = "LastName cannot be Empty")
 	public String lastName;
 	
 	@NotBlank(message = "Address cannot be Empty")
@@ -22,11 +22,11 @@ public @ToString class AddressBookDTO {
 	@NotBlank(message = "State cannot be Empty")
 	public String state;
 	
-	@NotBlank(message = "Zip Code cannot be Empty")
+	//@NotBlank(message = "Zip Code cannot be Empty")
 	public long zip;
 	
-	@Pattern(regexp = "((^\\\\+?)(([0-9]{2,3})(\\\\s))?)' + '[0-9]{10}$", message = "Phone Number Invalid")
-	public long phone;
+	//@Pattern(regexp = "((^\\\\+?)(([0-9]{2,3})(\\\\s))?)' + '[0-9]{10}$", message = "Phone Number Invalid")
+	public String phone;
 	
 	@NotBlank(message = "Email cannot be Empty")
 	public String email;

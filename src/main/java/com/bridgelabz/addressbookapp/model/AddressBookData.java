@@ -27,7 +27,7 @@ public @Data class AddressBookData {
 	private String city;
 	private String state;
 	private long zip;
-	private long phone;
+	private String phone;
 	private String email;
 	
 	public AddressBookData(AddressBookDTO addBookDTO) {
