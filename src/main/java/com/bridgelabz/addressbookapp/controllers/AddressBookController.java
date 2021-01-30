@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.bridgelabz.addressbookapp.dto.AddressBookDTO;
@@ -50,7 +51,7 @@ public class AddressBookController {
 	}
 	
 	@GetMapping("/city/{city}")
-	public ResponseEntity<ResponseDTO> getAddressBookDataByCity(@PathVariable("city") String city) {
+	public ResponseEntity<ResponseDTO> getAddressBookDataByCity(@RequestParam("city") String city) {
 		List<AddressBookData> addBookList = null;
 		addBookList = addressBookService.getAddressBookDataByCity(city);
 		ResponseDTO respDTO = new ResponseDTO("Get call For ID Successful", addBookList);
@@ -58,7 +59,7 @@ public class AddressBookController {
 	}
 	
 	@GetMapping("/state/{state}")
-	public ResponseEntity<ResponseDTO> getAddressBookDataByState(@PathVariable("state") String state) {
+	public ResponseEntity<ResponseDTO> getAddressBookDataByState(@RequestParam("state") String state) {
 		List<AddressBookData> addBookList = null;
 		addBookList = addressBookService.getAddressBookDataByState(state);
 		ResponseDTO respDTO = new ResponseDTO("Get call For ID Successful", addBookList);
